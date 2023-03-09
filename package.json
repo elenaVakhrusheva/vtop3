@@ -1,0 +1,28 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "Test task for HTML-developer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elenaVakhrusheva/vtop3.git"
+  },
+  "author": "Vakhrusheva Elena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elenaVakhrusheva/vtop3/issues"
+  },
+  "homepage": "https://github.com/elenaVakhrusheva/vtop3#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-less": "^5.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "less-plugin-clean-css": "^1.5.1",
+    "normalize.css": "^8.0.1"
+  }
+}

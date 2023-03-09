@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Task for Vtop3</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="content">
+      <form action="#" class="form">
+        <div class="form-title">
+          <h2>Sign up</h2>
+        </div>
+        <div class="form-content">
+          <h3>New user?</h3>
+          <p>Use the form below to create your account.</p>
+          <ul>
+            <li>
+              <label for="name">First Name</label>
+              <input type="text" name="name" placeholder="Alice" id="name" required>
+            </li>
+            <li>
+              <label for="lastName">Last Name</label>
+              <input type="text" name="lastName" placeholder="Miller" id="lastName" required>
+            </li>
+            <li>
+              <label for="national">Nationality</label>
+              <input type="text" name="national" placeholder="American" id="national" required>
+            </li>
+            <li>
+              <label for="email">E-mail</label>
+              <input type="email" name="mail" placeholder="alice.miller@yahoo.com" id="email" required>
+            </li>
+            <li>
+              <label for="dateBirth">Date of Birth</label>
+              <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+              </select>
+              <select id="month" name="month">
+                <option selected>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+              </select>
+              <select id="year"><option value style="display:none"> </option></select>
+            </li>
+            <li>
+              <label for="gender">Gender</label>
+               Male <input type = "radio" name = "sex" value = "male" checked>
+               Female <input type = "radio" name = "sex" value = "female"> 
+            </li>
+            <li>
+              <label for="pass">Gender</label>
+              <input type="password">
+            </li>
+            <li>
+              <label for="confirmPass">Confirm Password</label>
+              <input type="password">
+            </li>
+          </ul>
+          <div>
+            <div class="subtext">Have an account? <a href="#">Login</a></div>
+            <div class="form-button">
+              <button>Complete Signup</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    for (let year = 1920; year <= 2023; year++) {
+    let options = document.createElement("OPTION");
+    document.getElementById("year").appendChild(options).innerHTML = year;
+    document.getElementById("year").appendChild(options).value = year;
+    }
+    
+  </script>
+</body>
+</html>
