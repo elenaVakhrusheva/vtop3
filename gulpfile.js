@@ -5,11 +5,11 @@ var gulp        = require('gulp'),
     concatCss 	= require('gulp-concat-css');
 
 gulp.task('less', function(done) {
-    gulp.src("scr/css/*.less")
+    gulp.src("src/css/*.less")
         .pipe(less())
+        .pipe(autoprefixer('last 2 versions'))
         .pipe(gulp.dest("dist/css"))
         .pipe(concatCss('main.css'))
-        .pipe(autoprefixer('last 2 versions'))
         .pipe(browserSync.stream());
     done();
 });

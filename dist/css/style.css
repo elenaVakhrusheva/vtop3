@@ -2,23 +2,19 @@ body {
   margin: 0;
   background-color: #F2F2F2;
 }
-
 .content {
   width: 100%;
   max-width: 1200px;
   height: auto;
 }
-
 .form {
   width: 100%;
   max-width: 664px;
   margin: 0 auto;
 }
-
 .form-title {
   background: #5A61ED;
 }
-
-.form-content{
-  background:#fff, url('../../src/img/bg-shape.svg')
+.form-content {
+  background: #fff, url('../../src/img/bg-shape.svg');
 }
