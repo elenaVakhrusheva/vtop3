@@ -5,7 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Test Task for Vtop3</title>
-  <link rel="stylesheet" src="../dist/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Work+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <div class="wrapper">
@@ -20,23 +21,23 @@
           <ul>
             <li>
               <label for="name">First Name</label>
-              <input type="text" name="name" placeholder="Alice" id="name" required>
+              <input type="text" name="name" placeholder=" " id="name" required>
             </li>
             <li>
               <label for="lastName">Last Name</label>
-              <input type="text" name="lastName" placeholder="Miller" id="lastName" required>
+              <input type="text" name="lastName" placeholder=" " id="lastName" required>
             </li>
             <li>
               <label for="national">Nationality</label>
-              <input type="text" name="national" placeholder="American" id="national" required>
+              <input type="text" name="national" placeholder=" " id="national" required>
             </li>
             <li>
               <label for="email">E-mail</label>
-              <input type="email" name="mail" placeholder="alice.miller@yahoo.com" id="email" required>
+              <input type="email" name="mail" placeholder=" " id="email" required>
             </li>
             <li>
               <label for="dateBirth">Date of Birth</label>
-              <select>
+              <select id="day" class="select-custom">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -86,9 +87,18 @@
               <select id="year"><option value style="display:none"> </option></select>
             </li>
             <li>
-              <label for="gender">Gender</label>
-               Male <input type = "radio" name = "sex" value = "male" checked>
-               Female <input type = "radio" name = "sex" value = "female"> 
+              <label for="gender" class="label-gender">Gender</label>
+              <div class="radio-custom__group">
+                <div class="radio-custom">
+                  <input type="radio" name="sex" value="male" id="sex-male" 
+                  checked>
+                  <label for="sex-male" class="radio-label">Male</label>
+                </div>
+                <div class="radio-custom">
+                  <input type="radio" name="sex" value="female" id="sex-female"  > 
+                  <label for="sex-female" class="radio-label">Female</label>
+                </div>
+              </div>
             </li>
             <li>
               <label for="pass">Gender</label>
@@ -99,7 +109,7 @@
               <input type="password">
             </li>
           </ul>
-          <div>
+          <div class="signup">
             <div class="subtext">Have an account? <a href="#">Login</a></div>
             <div class="form-button">
               <button>Complete Signup</button>

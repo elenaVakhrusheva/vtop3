@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/elenaVakhrusheva/vtop3#readme",
   "devDependencies": {
+    "del": "^5.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-concat-css": "^3.1.0",

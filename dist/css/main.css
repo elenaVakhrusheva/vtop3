@@ -1,6 +1,20 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 16px;
+}
+
 body {
   margin: 0;
   background-color: #F2F2F2;
+  font-family: 'Work Sans', sans-serif;
+  color: #111111;
 }
 
 .content {
@@ -9,16 +23,329 @@ body {
   height: auto;
 }
 
-.form {
+h2 {
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 63px;
+  letter-spacing: 0.5px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+a {
+  color: #5A61ED;
+  text-decoration: underline;
+}
+
+button {
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0.4rem 1.6rem;
+  border: none;
+  background-color: #5A61ED;
+  color: #fff;
   width: 100%;
-  max-width: 664px;
+  border: 0.5px solid #FFFFFF;
+}
+
+input {
+  width: 100%;
+  padding: 0.4rem 0;
+  border: none;
+  border-bottom: 1px solid #F2F2F2;
+}
+
+input:focus,
+select:focus {
+  outline: none !important;
+}
+
+.wrap-form {
+  position: relative;
+}
+
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 41.5rem;
+  max-height: 30rem;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .form-title {
   background: #5A61ED;
+  width: 100%;
+  max-width: 8.5rem;
+  padding: 0 0.3rem 1.25rem 0;
 }
 
-.form-content{
-  background:#fff, url('../../src/img/bg-shape.svg')
+.form-title h2 {
+  -webkit-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: vertical-lr;
+  -webkit-transform: scale(-1);
+  transform: scale(-1);
+  width: 100%;
+  height: 100%;
+  margin: 0 6px 20px 0;
+  color: #fff;
+}
+
+.form-content {
+  width: 100%;
+  background: url("../img/bg-shape.svg") no-repeat right bottom, #fff;
+  padding: 2.5rem 1.25rem;
+}
+
+.form-content h3 {
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+  margin: 0;
+}
+
+.form-content p {
+  font-size: 0.8rem;
+  line-height: 1rem;
+}
+
+.form-content ul {
+  margin: 1.22rem 0 6.5rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.form-content ul li {
+  -webkit-box-flex: 50%;
+  -ms-flex: 50%;
+  flex: 50%;
+  padding: 0 0.9rem 1rem 0;
+}
+
+.form-content ul li label {
+  font-size: 0.75rem;
+  line-height: 0.85rem;
+  color: #7C7C7C;
+  display: block;
+}
+
+.form-content ul li input {
+  background: transparent;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  color: #111111;
+}
+
+.form-content ul li select {
+  border: none;
+  border-bottom: 1px solid #F2F2F2;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  background-image: url("../img/arrow.svg");
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7rem top 50%, 0 0;
+  background-size: 0.65rem auto, 100%;
+  width: auto;
+  padding-bottom: 0.3rem;
+}
+
+.form-content ul li select::-ms-expand {
+  display: none;
+}
+
+.form-content ul li select#day {
+  width: 3.5rem;
+}
+
+.form-content ul li select#month {
+  width: 5.6rem;
+}
+
+.form-content ul li select#year {
+  width: 4rem;
+}
+
+.form-content ul li:nth-last-child(-n+2) {
+  padding: 0 0.9rem 0 0;
+}
+
+.form-content ul li:nth-child(even) {
+  margin-right: 0.5rem;
+}
+
+.form-content ul input:required + span:after {
+  content: "Required";
+}
+
+.form-button button {
+  max-width: 9.6rem;
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+}
+
+.radio-custom__group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.radio-custom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  width: 50%;
+}
+
+.radio-custom input[type="radio"] {
+  display: none;
+}
+
+.radio-custom input[type="radio"] + .radio-label:before {
+  content: "";
+  border-radius: 100%;
+  border: 0.7px solid #5A61ED;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  position: relative;
+  margin-right: 1em;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+
+.radio-custom input[type="radio"]:checked + .radio-label:before {
+  outline: 0.1rem solid #5A61ED;
+  -webkit-box-shadow: 0px 6px 0px 4px #5A61ED inset;
+  box-shadow: 0px 6px 0px 4px #5A61ED inset;
+  border: 4px solid #fff;
+}
+
+.radio-custom input[type="radio"] + .radio-label:empty:before {
+  margin-right: 0;
+}
+
+.radio-custom .radio-label {
+  margin-bottom: 0;
+  color: #111;
+}
+
+.label-gender {
+  margin-bottom: 0.3rem;
+}
+
+.signup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.subtext {
+  font-size: 0.8rem;
+  color: #000000;
+}
+
+/* === MEDIA SCREEN === */
+
+@media (max-width: 500px) {
+  .form {
+    position: relative;
+    max-height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transform: none;
+    transform: none;
+  }
+
+  .form-title {
+    max-width: 4.5rem;
+  }
+
+  .form-content ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .form-content ul li {
+    padding: 0 0 1rem 0!important;
+  }
+
+  .signup {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .form-content {
+    padding: 1.5rem 1.25rem;
+    background-size: 80%;
+  }
+
+  .form-title {
+    max-width: 100%;
+    padding: 0.5rem 1rem;
+  }
+
+  .form-title h2 {
+    -webkit-writing-mode: revert;
+    -ms-writing-mode: revert;
+    writing-mode: revert;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+  }
 }
