@@ -11,7 +11,7 @@
 <body>
   <div class="wrapper">
     <div class="content">
-      <form action="#" class="form" id="main-form">
+      <form action="#" class="form" id="main-form" onSubmit = "return checkPassword(this)">
         <input type="hidden" name="whatever" value="Главная форма">
         <div class="form-title">
           <h2>Sign up</h2>
@@ -108,18 +108,18 @@
             </li>
             <li>
               <label for="pass">Password</label>
-              <input type="password1" minlength="8" pattern="^[А-ЯА-яA-Za-z0-9]{1,8}$" required  >
-             
+              <input name="password1"  minlength="8" pattern="^[А-ЯА-яA-Za-z0-9]{1,8}$" required  >
+              <span class="hidden help"   >Пароль должен содержать строчные и заглавные буквы, цифры</span>
             </li>
             <li>
               <label for="confirmPass">Confirm Password</label>
-              <input type="password2" minlength="8" pattern="^[А-ЯА-яA-Za-z0-9]{1,8}$" required  >
+              <input  name="password2"  minlength="8" pattern="^[А-ЯА-яA-Za-z0-9]{1,8}$" required  >
             </li>
           </ul>
           <div class="signup">
             <div class="subtext">Have an account? <a href="#">Login</a></div>
             <div class="form-button">
-              <button>Complete Signup</button>
+              <button type = submit value = "Submit">Complete Signup</button>
             </div>
           </div>
         </div>
@@ -139,35 +139,35 @@
     }
     
   </script>
-  <script>
-          
-            // Function to check Whether both passwords
-            // is same or not.
-            function checkPassword(form) {
-                password1 = form.password1.value;
-                password2 = form.password2.value;
-  
-                // If password not entered
-                if (password1 == '')
-                    alert ("Please enter Password");
-                      
-                // If confirm password not entered
-                else if (password2 == '')
-                    alert ("Please enter confirm password");
-                      
-                // If Not same return False.    
-                else if (password1 != password2) {
-                    alert ("\nPassword did not match: Please try again...")
-                    return false;
-                }
-  
-                // If same return True.
-                else{
-                    alert("Password Match: Welcome to GeeksforGeeks!")
-                    return true;
-                }
-            }
-        </script>
+  <script>   
+
+ let  helpText = document.getElementsByClassName("help");
+ helpText.style.visibility = "hidden";
+
+    function checkPassword(form) {
+        password1 = form.password1.value;
+        password2 = form.password2.value;
+    
+        if (password1 == '') 
+          /* alert ("Please enter Password"); */
+          /*  helpText.style.visibility = 'visible'; */  // show
+           helpText.forEach((elem) => {
+          elem.style.visibility = 'visible'
+          })            
+        else if (password2 == '')
+          alert ("Please enter confirm password");
+                        
+        else if (password1 != password2) {
+          alert ("\nPassword did not match: Please try again...")
+            return false;
+        }
+    
+        else{
+          alert("Password Match: Welcome to GeeksforGeeks!")
+            return true;
+        }
+      }
+  </script>
 
         <script>
           $(document).ready(function(){

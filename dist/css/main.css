@@ -287,6 +287,13 @@ select:focus {
   color: #000000;
 }
 
+.help {
+  font-size: 0.7rem;
+  display: block;
+  color: red;
+  margin-top: 0.7rem;
+}
+
 /* === MEDIA SCREEN === */
 
 @media (max-width: 500px) {
