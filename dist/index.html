@@ -11,7 +11,8 @@
 <body>
   <div class="wrapper">
     <div class="content">
-      <form action="#" class="form">
+      <form action="#" class="form" id="main-form">
+        <input type="hidden" name="whatever" value="Главная форма">
         <div class="form-title">
           <h2>Sign up</h2>
         </div>
@@ -21,23 +22,27 @@
           <ul>
             <li>
               <label for="name">First Name</label>
-              <input type="text" name="name" placeholder=" " id="name" required>
+              <input type="text" name="name" placeholder=" " id="name" title="First Name" required>
+              <span class="error"> </span>
             </li>
             <li>
-              <label for="last-name">Last Name</label>
-              <input type="text" name="last-name" placeholder=" " id="last-name" required>
+              <label for="lastName">Last Name</label>
+              <input type="text" name="lastName" placeholder=" " id="last-name" required>
+              <span class="error"> </span>
             </li>
             <li>
               <label for="national">Nationality</label>
               <input type="text" name="national" placeholder=" " id="national" required>
+              <span class="error"> </span>
             </li>
             <li>
               <label for="email">E-mail</label>
               <input type="email" name="mail" placeholder=" " id="email" required>
+              <span class="error"> </span> 
             </li>
             <li>
               <label for="date-birth">Date of Birth</label>
-              <select id="day" class="select-custom" >
+              <select id="day" class="select-custom" required>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -49,7 +54,7 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
                 <option value="11">11</option>
-                <optioт value="12">12</option>
+                <option value="12">12</option>
                 <option value="13">13</option>
                 <option value="14">14</option>
                 <option value="15">15</option>
@@ -70,7 +75,7 @@
                 <option value="30">30</option>
                 <option value="31">31</option>
               </select>
-              <select id="month" name="month">
+              <select id="month" name="month" required>
                 <option value="January" selected>January</option>
                 <option value="February">February</option>
                 <option value="March">March</option>
@@ -84,29 +89,31 @@
                 <option value="November">November</option>
                 <option value="December">December</option>
               </select>
-              <select id="year"><option value style="display:none"> </option></select>
+              <select id="year" required>
+                <option value style="display:none"> </option>
+              </select>
             </li>
             <li>
               <label for="gender" class="label-gender">Gender</label>
               <div class="radio-custom__group">
                 <div class="radio-custom">
-                  <input type="radio" name="sex" value="male" id="sex-male" 
-                  checked>
+                  <input type="radio" name="sex" value="male" id="sex-male" required checked>
                   <label for="sex-male" class="radio-label">Male</label>
                 </div>
                 <div class="radio-custom">
-                  <input type="radio" name="sex" value="female" id="sex-female"  > 
+                  <input type="radio" name="sex" value="female" id="sex-female" required > 
                   <label for="sex-female" class="radio-label">Female</label>
                 </div>
               </div>
             </li>
             <li>
-              <label for="pass">Gender</label>
-              <input type="password">
+              <label for="pass">Password</label>
+              <input type="password1" minlength="8" pattern="^[А-ЯА-яA-Za-z0-9]{1,8}$" required  >
+             
             </li>
             <li>
               <label for="confirmPass">Confirm Password</label>
-              <input type="password">
+              <input type="password2" minlength="8" pattern="^[А-ЯА-яA-Za-z0-9]{1,8}$" required  >
             </li>
           </ul>
           <div class="signup">
@@ -119,6 +126,11 @@
       </form>
     </div>
   </div>
+    </div>
+  <script
+  src="https://code.jquery.com/jquery-3.6.4.min.js"
+  integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+  crossorigin="anonymous"></script>
   <script>
     for (let year = 1920; year <= 2023; year++) {
     let options = document.createElement("OPTION");
@@ -127,5 +139,52 @@
     }
     
   </script>
+  <script>
+          
+            // Function to check Whether both passwords
+            // is same or not.
+            function checkPassword(form) {
+                password1 = form.password1.value;
+                password2 = form.password2.value;
+  
+                // If password not entered
+                if (password1 == '')
+                    alert ("Please enter Password");
+                      
+                // If confirm password not entered
+                else if (password2 == '')
+                    alert ("Please enter confirm password");
+                      
+                // If Not same return False.    
+                else if (password1 != password2) {
+                    alert ("\nPassword did not match: Please try again...")
+                    return false;
+                }
+  
+                // If same return True.
+                else{
+                    alert("Password Match: Welcome to GeeksforGeeks!")
+                    return true;
+                }
+            }
+        </script>
+
+        <script>
+          $(document).ready(function(){
+            $('#main-form').submit(function(){
+              $.ajax({
+                type:"POST",
+                url:"mail.php",
+                data:$(this).serialize()
+              }).done(function(){
+                $(this).find("input").val("");
+                alert("Спасибо за заявку!");
+                $("#main-form").trigger("reset");
+              });
+              return false;
+            })
+          })
+        </script>
+
 </body>
 </html>

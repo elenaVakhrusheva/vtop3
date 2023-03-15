@@ -130,6 +130,9 @@ select:focus {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+  /* li:nth-child(even) {
+        margin-right: 0.5rem;
+      } */
 }
 
 .form-content ul li {
@@ -188,12 +191,12 @@ select:focus {
   padding: 0 0.9rem 0 0;
 }
 
-.form-content ul li:nth-child(even) {
-  margin-right: 0.5rem;
+.form-content ul input + span:after {
+  display: none;
 }
 
-.form-content ul input:required + span:after {
-  content: "Required";
+.form-content ul input:invalid:required + span:after {
+  content: "The field is required";
 }
 
 .form-button button {

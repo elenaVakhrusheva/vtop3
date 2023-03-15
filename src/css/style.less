@@ -154,12 +154,14 @@ select:focus {
         padding: 0 0.9rem 0 0;
       }
 
-      li:nth-child(even) {
+      /* li:nth-child(even) {
         margin-right: 0.5rem;
+      } */
+      input + span:after {
+        display:none;
       }
- 
-      input:required + span:after {
-        content: "Required";
+      input:invalid:required + span:after {
+        content: "The field is required";
       }
 
       input[type=password] {
