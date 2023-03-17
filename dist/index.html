@@ -171,7 +171,30 @@
          
     }
   </script>
- 
+ <script>
+  $("h3").text(function(i, text) {
+
+    if (text.length >= 40) {
+      text = text.substring(0, 40);
+      var lastIndex = text.lastIndexOf(" ");       // позиция последнего пробела
+      text = text.substring(0, lastIndex) + '...'; // обрезаем до последнего слова
+    }
+    
+    $(this).text(text);
+    
+  });
+  $("p").text(function(i, text) {
+
+    if (text.length >= 60) {
+      text = text.substring(0, 60);
+      var lastIndex = text.lastIndexOf(" ");       // позиция последнего пробела
+      text = text.substring(0, lastIndex) + '...'; // обрезаем до последнего слова
+    }
+    
+    $(this).text(text);
+    
+  });
+ </script>
  
 </body>
 </html>
