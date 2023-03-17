@@ -11,38 +11,40 @@
 <body>
   <div class="wrapper">
     <div class="content">
-      <form action="#" class="form" id="main-form" onSubmit = "return checkPassword(this)">
+      <!-- <form action="#" class="form" id="main-form" onSubmit = "return checkPassword(this)"> -->
+        <form action="" class="form"  onsubmit="return myFunction()"  > 
+      
         <input type="hidden" name="whatever" value="Главная форма">
         <div class="form-title">
           <h2>Sign up</h2>
         </div>
-        <div class="form-content">
+        <div class="form-content" id="svg-bg">
           <h3>New user?</h3>
           <p>Use the form below to create your account.</p>
           <ul>
             <li>
               <label for="name">First Name</label>
-              <input type="text" name="name" placeholder=" " id="name" title="First Name" required>
+              <input type="text" name="name" placeholder=" " id="name" class="field" title="First Name" required>
               <span class="error"> </span>
             </li>
             <li>
               <label for="lastName">Last Name</label>
-              <input type="text" name="lastName" placeholder=" " id="last-name" required>
+              <input type="text" name="lastName" placeholder=" " class="field" id="last-name" required>
               <span class="error"> </span>
             </li>
             <li>
               <label for="national">Nationality</label>
-              <input type="text" name="national" placeholder=" " id="national" required>
+              <input type="text" name="national" placeholder=" " class="field" id="national" required>
               <span class="error"> </span>
             </li>
             <li>
               <label for="email">E-mail</label>
-              <input type="email" name="mail" placeholder=" " id="email" required>
+              <input type="email" name="mail" placeholder=" " class="field" id="email" required>
               <span class="error"> </span> 
             </li>
             <li>
               <label for="date-birth">Date of Birth</label>
-              <select id="day" class="select-custom" required>
+              <select id="day" class="select-custom field" required>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -75,7 +77,7 @@
                 <option value="30">30</option>
                 <option value="31">31</option>
               </select>
-              <select id="month" name="month" required>
+              <select id="month" name="month" class="field" required>
                 <option value="January" selected>January</option>
                 <option value="February">February</option>
                 <option value="March">March</option>
@@ -89,7 +91,7 @@
                 <option value="November">November</option>
                 <option value="December">December</option>
               </select>
-              <select id="year" required>
+              <select id="year" class="field" required>
                 <option value style="display:none"> </option>
               </select>
             </li>
@@ -97,94 +99,79 @@
               <label for="gender" class="label-gender">Gender</label>
               <div class="radio-custom__group">
                 <div class="radio-custom">
-                  <input type="radio" name="sex" value="male" id="sex-male" required checked>
+                  <input type="radio" name="sex" value="male" id="sex-male" class="field" required checked>
                   <label for="sex-male" class="radio-label">Male</label>
                 </div>
                 <div class="radio-custom">
-                  <input type="radio" name="sex" value="female" id="sex-female" required > 
+                  <input type="radio" name="sex" value="female" id="sex-female" class="field" required > 
                   <label for="sex-female" class="radio-label">Female</label>
                 </div>
               </div>
             </li>
-            <li>
+            <li class="block-pass">
               <label for="pass">Password</label>
-              <input name="password1"  minlength="8" pattern="^[А-ЯА-яA-Za-z0-9]{1,8}$" required  >
-              <span class="hidden help"   >Пароль должен содержать строчные и заглавные буквы, цифры</span>
+              <input                   
+                id="pass1" 
+                class="password field"                   
+                required>               
             </li>
-            <li>
+            <li class="block-pass">
               <label for="confirmPass">Confirm Password</label>
-              <input  name="password2"  minlength="8" pattern="^[А-ЯА-яA-Za-z0-9]{1,8}$" required  >
+              <input                 
+                id="pass2"     
+                class="passwordConfirmation field"
+                required>
             </li>
           </ul>
+           <div class="error-text" id="error-text">Password doesnt match</div>
           <div class="signup">
             <div class="subtext">Have an account? <a href="#">Login</a></div>
             <div class="form-button">
-              <button type = submit value = "Submit">Complete Signup</button>
+              <button type="submit" value="Submit">Complete Signup</button>
             </div>
-          </div>
+          </div>        
         </div>
       </form>
     </div>
   </div>
     </div>
-  <script
-  src="https://code.jquery.com/jquery-3.6.4.min.js"
-  integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-  crossorigin="anonymous"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script>
     for (let year = 1920; year <= 2023; year++) {
-    let options = document.createElement("OPTION");
-    document.getElementById("year").appendChild(options).innerHTML = year;
-    document.getElementById("year").appendChild(options).value = year;
+      let options = document.createElement("OPTION");
+      document.getElementById("year").appendChild(options).innerHTML = year;
+      document.getElementById("year").appendChild(options).value = year;
     }
-    
   </script>
-  <script>   
+  <script>
+    function myFunction() {
+        var pass1 = document.getElementById("pass1").value;
+        var pass2 = document.getElementById("pass2").value;
+       // var errorText = document.getElementById("error-text").value;
 
- let  helpText = document.getElementsByClassName("help");
- helpText.style.visibility = "hidden";
-
-    function checkPassword(form) {
-        password1 = form.password1.value;
-        password2 = form.password2.value;
-    
-        if (password1 == '') 
-          /* alert ("Please enter Password"); */
-          /*  helpText.style.visibility = 'visible'; */  // show
-           helpText.forEach((elem) => {
-          elem.style.visibility = 'visible'
-          })            
-        else if (password2 == '')
-          alert ("Please enter confirm password");
-                        
-        else if (password1 != password2) {
-          alert ("\nPassword did not match: Please try again...")
+        var ok = true;
+       //  if ((pass1 != pass2) && (pass1.value.length >=8) && (pass2.value.length >=8)) {
+        if (pass1.length < 8) 
+          {
+             console.log(pass1.length);
+             alert("you have to enter at least 8 digit!");
+          } else if (pass1 != pass2) 
+          {
+            alert("Passwords Do not match");
+            document.getElementById("pass1").style.borderColor = "#E34234";
+            document.getElementById("pass2").style.borderColor = "#E34234";
             return false;
+          } 
+        else {
+            alert("Регистрация прошла успешно");
+               e.preventDefault();
+    $.post('mail.php', $('#myForm').serialize());
         }
-    
-        else{
-          alert("Password Match: Welcome to GeeksforGeeks!")
-            return true;
-        }
-      }
+        return ok;
+         
+    }
   </script>
-
-        <script>
-          $(document).ready(function(){
-            $('#main-form').submit(function(){
-              $.ajax({
-                type:"POST",
-                url:"mail.php",
-                data:$(this).serialize()
-              }).done(function(){
-                $(this).find("input").val("");
-                alert("Спасибо за заявку!");
-                $("#main-form").trigger("reset");
-              });
-              return false;
-            })
-          })
-        </script>
-
+ 
+ 
 </body>
 </html>
